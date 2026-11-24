@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KidsLearn - Bé vui học tập</title>
+<style>
+:root{--blue:#5b8def;--pink:#ff7aa8;--yellow:#ffd166;--green:#70d6a5;--ink:#293451}
+*{box-sizing:border-box}body{margin:0;font-family:"Trebuchet MS",Arial,sans-serif;color:var(--ink);background:#f5f8ff}
+header{background:white;position:sticky;top:0;z-index:5;box-shadow:0 3px 18px #25365b12}
+.nav{max-width:1100px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:25px;font-weight:900;color:#557de8}.logo span{color:#ff78a5}
+nav{display:flex;gap:8px;flex-wrap:wrap}nav button{border:0;background:transparent;padding:10px 13px;border-radius:20px;font-weight:700;color:#53617d;cursor:pointer}nav button:hover,nav button.active{background:#edf2ff;color:#4d73df}
+main{max-width:1100px;margin:auto;padding:26px 22px 60px}
+.hero{background:linear-gradient(120deg,#dff2ff,#ffe5ef);border-radius:28px;padding:38px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;overflow:hidden}
+.hero h1{font-size:clamp(32px,5vw,52px);line-height:1.1;margin:0 0 12px}.hero h1 span{color:#557de8}.hero p{font-size:18px;line-height:1.6;color:#5c6680}.hero-art{text-align:center;font-size:clamp(100px,17vw,180px);filter:drop-shadow(0 10px 4px #6a79a322)}
+.primary{background:#587fe8;color:white;border:0;border-radius:25px;padding:13px 22px;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 5px 0 #3e61c4}.primary:active{transform:translateY(3px);box-shadow:0 2px 0 #3e61c4}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin:32px 0 16px}.section-title h2{margin:0;font-size:26px}.muted{color:#7a849b}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:white;border-radius:22px;padding:20px;text-align:center;box-shadow:0 7px 24px #34446a0d;border:2px solid transparent;cursor:pointer;transition:.2s}.card:hover{transform:translateY(-5px);border-color:#d9e2ff}.emoji{font-size:54px}.card h3{margin:10px 0 5px}.card p{margin:0;color:#77819a;font-size:14px}
+.panel{margin-top:25px;background:white;border-radius:25px;padding:25px;box-shadow:0 7px 24px #34446a0d;min-height:270px}.panel h2{margin-top:0}.activity{display:none}.activity.show{display:block}.choices{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.choice{background:#f1f5ff;border:2px solid #dce5ff;border-radius:16px;padding:14px 20px;font-size:20px;cursor:pointer;min-width:72px}.choice:hover{background:#e4edff}.feedback{font-weight:800;min-height:28px;margin-top:16px}.big-letter{font-size:100px;font-weight:900;color:#587fe8;text-align:center}
+.color-dot{width:76px;height:76px;border-radius:50%;display:inline-block;border:5px solid white;box-shadow:0 3px 12px #0002}
+footer{text-align:center;padding:25px;color:#8791a6}
+@media(max-width:760px){.hero{grid-template-columns:1fr;text-align:center;padding:28px 20px}.hero-art{font-size:100px}.cards{grid-template-columns:repeat(2,1fr)}.nav{align-items:flex-start;flex-direction:column}nav{width:100%}nav button{padding:8px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="logo">🌈 Kids<span>Learn</span></div><nav>
+<button class="active" data-target="home">Trang chủ</button><button data-target="letters">Học chữ</button><button data-target="numbers">Học số</button><button data-target="colors">Màu sắc</button><button data-target="animals">Con vật</button>
+</nav></div></header>
+<main>
+<section id="home">
+<div class="hero"><div><h1>Mỗi ngày đến lớp<br><span>là một ngày vui!</span></h1><p>Cùng bé khám phá thế giới qua những bài học nhỏ và trò chơi thú vị. Học mà chơi, chơi mà học!</p><button class="primary" onclick="showActivity('letters')">Bắt đầu khám phá ✨</button></div><div class="hero-art">🧒🏻📚🧸</div></div>
+<div class="section-title"><h2>🎒 Góc học tập của bé</h2><span class="muted">Chọn một chủ đề nhé!</span></div>
+<div class="cards">
+<div class="card" onclick="showActivity('letters')"><div class="emoji">🔤</div><h3>Bé học chữ</h3><p>Làm quen bảng chữ cái</p></div>
+<div class="card" onclick="showActivity('numbers')"><div class="emoji">🔢</div><h3>Bé học số</h3><p>Đếm số từ 1 đến 10</p></div>
+<div class="card" onclick="showActivity('colors')"><div class="emoji">🎨</div><h3>Thế giới màu sắc</h3><p>Nhận biết màu sắc</p></div>
+<div class="card" onclick="showActivity('animals')"><div class="emoji">🐻</div><h3>Bạn động vật</h3><p>Khám phá các con vật</p></div>
+</div>
+</section>
+<section class="panel">
+<div id="welcome"><h2>🌟 Sẵn sàng chưa nào?</h2><p class="muted">Chọn một chủ đề phía trên để bắt đầu bài học tương tác nhé!</p><div style="font-size:55px">🦄 🎈 🐥 ⭐</div></div>
+<div id="letters" class="activity"><h2>🔤 Bé học chữ cái</h2><p>Chữ cái nào bé đang nhìn thấy?</p><div class="big-letter" id="letter">A</div><div class="choices" id="letterChoices"></div><div class="feedback" id="letterFeedback"></div><button class="primary" onclick="newLetter()">Chữ tiếp theo ➜</button></div>
+<div id="numbers" class="activity"><h2>🔢 Bé tập đếm</h2><p>Đếm số ngôi sao dưới đây nhé!</p><div id="stars" style="font-size:38px;letter-spacing:5px;margin:20px 0"></div><p>Bé chọn đáp án đúng:</p><div class="choices" id="numberChoices"></div><div class="feedback" id="numberFeedback"></div><button class="primary" onclick="newNumber()">Câu tiếp theo ➜</button></div>
+<div id="colors" class="activity"><h2>🎨 Nhận biết màu sắc</h2><p>Hình tròn này có màu gì?</p><div style="text-align:center;margin:20px"><span class="color-dot" id="colorDot"></span></div><div class="choices" id="colorChoices"></div><div class="feedback" id="colorFeedback"></div><button class="primary" onclick="newColor()">Màu tiếp theo ➜</button></div>
+<div id="animals" class="activity"><h2>🐾 Đố bé con gì?</h2><p>Con vật nào có tiếng kêu “meo meo”?</p><div style="font-size:85px;text-align:center">🐱</div><div class="choices" id="animalChoices"><button class="choice" onclick="answer('animal','Con mèo')">🐶 Con chó</button><button class="choice" onclick="answer('animal','Con mèo')">🐱 Con mèo</button><button class="choice" onclick="answer('animal','Con mèo')">🐰 Con thỏ</button></div><div class="feedback" id="animalFeedback"></div><button class="primary" onclick="document.getElementById('animalFeedback').textContent='Cùng bé đọc lại: Mèo kêu meo meo! 🐱'">Gợi ý cho bé</button></div>
+</section>
+</main><footer>🌈 KidsLearn – Cùng bé lớn lên qua từng bài học nhỏ 💛</footer>
+<script>
+const $=id=>document.getElementById(id);
+function showActivity(id){$('welcome').style.display='none';document.querySelectorAll('.activity').forEach(x=>x.classList.remove('show'));$(id).classList.add('show');document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.target===id));if(id==='letters')newLetter();if(id==='numbers')newNumber();if(id==='colors')newColor();document.querySelector('.panel').scrollIntoView({behavior:'smooth',block:'start'});}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.target==='home'){$('welcome').style.display='block';document.querySelectorAll('.activity').forEach(x=>x.classList.remove('show'));document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x===b));window.scrollTo({top:0,behavior:'smooth'});}else showActivity(b.dataset.target)}));
+function shuffle(a){return a.sort(()=>Math.random()-.5)}
+function makeChoices(id,opts,correct,fb){$(id).innerHTML='';shuffle([...opts]).forEach(v=>{let b=document.createElement('button');b.className='choice';b.textContent=v;b.onclick=()=>{$(fb).textContent=v===correct?'🎉 Chính xác! Bé giỏi quá!':'💪 Bé thử lại nhé!';$(fb).style.color=v===correct?'#20a36a':'#e58b38';};$(id).appendChild(b)})}
+function newLetter(){let letters='ABCDEFGH';let c=letters[Math.floor(Math.random()*letters.length)];$('letter').textContent=c;$('letterFeedback').textContent='';makeChoices('letterChoices',[c,...shuffle([...letters].filter(x=>x!==c)).slice(0,2)],c,'letterFeedback')}
+function newNumber(){let n=1+Math.floor(Math.random()*5);$('stars').textContent='⭐ '.repeat(n);$('numberFeedback').textContent='';makeChoices('numberChoices',[n,n+1,Math.max(1,n-1)].map(String),String(n),'numberFeedback')}
+const colors=[['Đỏ','#ff5252'],['Vàng','#ffd43b'],['Xanh dương','#4d96ff'],['Xanh lá','#48c78e'],['Hồng','#ff78ad']];
+function newColor(){let c=colors[Math.floor(Math.random()*colors.length)];$('colorDot').style.background=c[1];$('colorFeedback').textContent='';makeChoices('colorChoices',shuffle([c[0],...shuffle(colors.filter(x=>x!==c).map(x=>x[0])).slice(0,2)]),c[0],'colorFeedback')}
+function answer(type,correct){$(type+'Feedback').textContent='🎉 '+(correct==='Con mèo'?'Đúng rồi! Mèo kêu meo meo!':'Rất tốt!');}
+</script></body></html>
